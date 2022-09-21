@@ -25,7 +25,7 @@ export default function Menu() {
         Random
       </MenuItem>
     </StyledMenu>
-  )
+  );
 }
 
 const StyledMenu = styled.div`

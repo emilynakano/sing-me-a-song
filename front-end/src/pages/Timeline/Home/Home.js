@@ -7,8 +7,13 @@ import CreateNewRecommendation from "../../../components/CreateNewRecommendation
 import Recommendation from "../../../components/Recommendation";
 
 export default function Home() {
-  const { recommendations, loadingRecommendations, listRecommendations } = useRecommendations();
-  const { loadingCreatingRecommendation, createRecommendation, creatingRecommendationError } = useCreateRecommendation();
+  const { recommendations, loadingRecommendations, listRecommendations } =
+    useRecommendations();
+  const {
+    loadingCreatingRecommendation,
+    createRecommendation,
+    creatingRecommendationError,
+  } = useCreateRecommendation();
 
   const handleCreateRecommendation = async (recommendation) => {
     await createRecommendation({
@@ -21,6 +26,7 @@ export default function Home() {
 
   useEffect(() => {
     if (creatingRecommendationError) {
+      // eslint-disable-next-line no-alert
       alert("Error creating recommendation!");
     }
   }, [creatingRecommendationError]);
@@ -31,23 +37,22 @@ export default function Home() {
 
   return (
     <>
-      <CreateNewRecommendation disabled={loadingCreatingRecommendation} onCreateNewRecommendation={handleCreateRecommendation} />
-      {
-        recommendations.map(recommendation => (
-          <Recommendation
-            key={recommendation.id}
-            {...recommendation}
-            onUpvote={() => listRecommendations()}
-            onDownvote={() => listRecommendations()}
-          />
-        ))
-      }
+      <CreateNewRecommendation
+        disabled={loadingCreatingRecommendation}
+        onCreateNewRecommendation={handleCreateRecommendation}
+      />
+      {recommendations.map((recommendation) => (
+        <Recommendation
+          key={recommendation.id}
+          {...recommendation}
+          onUpvote={() => listRecommendations()}
+          onDownvote={() => listRecommendations()}
+        />
+      ))}
 
-      {
-        recommendations.length === 0 && (
-          <div>No recommendations yet! Create your own :)</div>
-        )
-      }
+      {recommendations.length === 0 && (
+        <div>No recommendations yet! Create your own :)</div>
+      )}
     </>
-  )
+  );
 }

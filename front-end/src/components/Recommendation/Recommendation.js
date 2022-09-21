@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import styled from "styled-components";
 import { useEffect } from "react";
 
@@ -7,9 +8,18 @@ import { GoArrowUp, GoArrowDown } from "react-icons/go";
 import useUpvoteRecommendation from "../../hooks/api/useUpvoteRecommendation";
 import useDownvoteRecommendation from "../../hooks/api/useDownvoteRecommendation";
 
-export default function Recommendation({ name, youtubeLink, score, id, onUpvote = () => 0, onDownvote = () => 0 }) {
-  const { upvoteRecommendation, errorUpvotingRecommendation } = useUpvoteRecommendation();
-  const { downvoteRecommendation, errorDownvotingRecommendation } = useDownvoteRecommendation();
+export default function Recommendation({
+  name,
+  youtubeLink,
+  score,
+  id,
+  onUpvote = () => 0,
+  onDownvote = () => 0,
+}) {
+  const { upvoteRecommendation, errorUpvotingRecommendation } =
+    useUpvoteRecommendation();
+  const { downvoteRecommendation, errorDownvotingRecommendation } =
+    useDownvoteRecommendation();
 
   const handleUpvote = async () => {
     await upvoteRecommendation(id);
@@ -31,7 +41,6 @@ export default function Recommendation({ name, youtubeLink, score, id, onUpvote 
     if (errorDownvotingRecommendation) {
       alert("Error downvoting recommendation!");
     }
-
   }, [errorDownvotingRecommendation]);
 
   return (
@@ -52,7 +61,7 @@ const Container = styled.article`
   flex-direction: column;
   gap: 15px;
   padding: 15px 0;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   margin-bottom: 15px;
 `;

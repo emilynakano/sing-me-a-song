@@ -7,7 +7,7 @@ export default function Random() {
 
   const handleUpdate = () => {
     updateRecommendation(recommendation.id);
-  }
+  };
 
   if (!recommendation) {
     return <div>Loading...</div>;
