@@ -13,10 +13,13 @@ beforeEach(async () => {
 describe("POST /recommendations", () => {
     it("should answer with status code 201 - create recommendation", async () => {
         const recommendation = await generateRecommendation();
-        
+
         const result = await agent.post("/recommendations").send(recommendation);
-     
+        
+        const recommendationCount = await prisma.recommendation.count();
+
         expect(result.status).toBe(201);
+        expect(recommendationCount).toEqual(1)
     });
 
     it("should answer with status 422 code - wrong body", async () => {
@@ -24,7 +27,10 @@ describe("POST /recommendations", () => {
         
         const result = await agent.post("/recommendations").send(recommendation);
     
+        const recommendationCount = await prisma.recommendation.count();
+
         expect(result.status).toBe(422);
+        expect(recommendationCount).toEqual(0)
     });
 
     it("should answer with status code 409 - create recommendation conflict", async () => {
@@ -33,7 +39,10 @@ describe("POST /recommendations", () => {
 
         const result = await agent.post("/recommendations").send(recommendation);
         
+        const recommendationCount = await prisma.recommendation.count();
+
         expect(result.status).toBe(409);
+        expect(recommendationCount).toEqual(1)
     });
 });
 
@@ -59,4 +68,5 @@ describe("GET /recommendations/random", () => {
         expect(result.status).toBe(200);
         expect(result.body).toBeInstanceOf(Object);
     });
+
 });
