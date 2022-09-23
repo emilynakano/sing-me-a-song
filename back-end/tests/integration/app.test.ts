@@ -2,7 +2,7 @@ import app from "../../src/app";
 import supertest from "supertest";
 import { prisma } from "../../src/database.js";
 
-import { generateRecommendation } from "./factories/generateRecommendation.js";
+import { generateRecommendation, CreateRecommendationData, insertRecommendation } from "./factories/generateRecommendation.js";
 
 const agent = supertest(app);
 
@@ -28,6 +28,11 @@ describe("POST /recommendations", () => {
     });
 
     it("should answer with status code 409 - create recommendation conflict", async () => {
-       
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const result = await agent.post("/recommendations").send(recommendation);
+        
+        expect(result.status).toBe(409);
     });
 })
