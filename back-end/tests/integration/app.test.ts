@@ -35,4 +35,17 @@ describe("POST /recommendations", () => {
         
         expect(result.status).toBe(409);
     });
-})
+});
+
+describe("GET /recommendations", () => {
+    it("should answer with status code 200 and not null array", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const result = await agent.get("/recommendations");
+     
+        expect(result.status).toBe(200);
+        expect(result.body).toHaveLength(1);
+    });
+
+});
