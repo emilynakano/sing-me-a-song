@@ -69,9 +69,38 @@ describe("GET /recommendations/random", () => {
         expect(result.body).toBeInstanceOf(Object);
     });
 
-    it("should answer with status code 404 when doesn't exist recommendations", async () => {
+    it("should answer with status code 404 when doesn't exist recommendation", async () => {
         const result = await agent.get("/recommendations/random");
         
         expect(result.status).toBe(404);
     });
+});
+
+describe("GET /recommendations/top/:amount", () => {
+    it("should answer with status code 200 and an array", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const anotherRecommendation = await generateRecommendation();
+        await insertRecommendation(anotherRecommendation);
+
+        const upvoteRecommendation = await generateRecommendation();
+        await insertRecommendation(upvoteRecommendation);
+
+
+        await prisma.recommendation.update({
+            where: { name: upvoteRecommendation.name },
+            data: {
+              score: { ["increment"]: 1 },
+            },
+        });
+
+        const result = await agent.get("/recommendations/top/2");
+     
+        expect(result.status).toBe(200);
+        expect(result.body.length).toEqual(2);
+        expect(result.body[0]).toMatchObject(upvoteRecommendation);
+    });
+
+
 });
