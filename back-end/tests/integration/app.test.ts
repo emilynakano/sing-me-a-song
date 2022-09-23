@@ -16,11 +16,15 @@ describe("POST /recommendations", () => {
         
         const result = await agent.post("/recommendations").send(recommendation);
      
-        expect(result.status).toBe(201)
+        expect(result.status).toBe(201);
     });
 
-    it("should answer with status 422 code - wrong body", () => {
-
+    it("should answer with status 422 code - wrong body", async () => {
+        const recommendation = {};
+        
+        const result = await agent.post("/recommendations").send(recommendation);
+    
+        expect(result.status).toBe(422);
     });
 
     it("should answer with status code 409 - create recommendation conflict", () => {
