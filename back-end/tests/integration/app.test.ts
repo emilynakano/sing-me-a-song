@@ -27,7 +27,7 @@ describe("POST /recommendations", () => {
         expect(result.status).toBe(422);
     });
 
-    it("should answer with status code 409 - create recommendation conflict", () => {
-
+    it("should answer with status code 409 - create recommendation conflict", async () => {
+       
     });
 })
