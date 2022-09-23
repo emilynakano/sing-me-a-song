@@ -12,7 +12,11 @@ beforeEach(async () => {
 
 describe("POST /recommendations", () => {
     it("should answer with status code 201 - create recommendation", async () => {
+        const recommendation = await generateRecommendation();
         
+        const result = await agent.post("/recommendations").send(recommendation);
+     
+        expect(result.status).toBe(201)
     });
 
     it("should answer with status 422 code - wrong body", () => {
