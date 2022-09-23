@@ -69,4 +69,9 @@ describe("GET /recommendations/random", () => {
         expect(result.body).toBeInstanceOf(Object);
     });
 
+    it("should answer with status code 404 when doesn't exist recommendations", async () => {
+        const result = await agent.get("/recommendations/random");
+        
+        expect(result.status).toBe(404);
+    });
 });
