@@ -47,5 +47,16 @@ describe("GET /recommendations", () => {
         expect(result.status).toBe(200);
         expect(result.body).toHaveLength(1);
     });
+});
 
+describe("GET /recommendations/random", () => {
+    it("should answer with status code 200 and an object", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const result = await agent.get("/recommendations/random");
+     
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Object);
+    });
 });
