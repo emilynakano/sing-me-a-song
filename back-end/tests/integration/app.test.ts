@@ -124,4 +124,10 @@ describe("POST /recommendations/:id/upvote", () => {
         expect(score).toEqual(1);
         expect(result.status).toBe(200);
     });
+
+    it("should answer with status code 404 when doesn't exist recommendation", async () => {
+        const result = await agent.post(`/recommendations/1/upvote`);
+        
+        expect(result.status).toBe(404);
+    });
 });
