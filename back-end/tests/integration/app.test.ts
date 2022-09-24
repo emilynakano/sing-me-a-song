@@ -178,4 +178,9 @@ describe("POST /recommendations/:id/downvote", () => {
         expect(findRecommendation).toBeFalsy();
     });
 
+    it("should answer with status code 404 when doesn't exist recommendation", async () => {
+        const result = await agent.post(`/recommendations/1/downvote`);
+        
+        expect(result.status).toBe(404);
+    });
 });
