@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest -i",
+    "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest -i --coverage",
     "dev": "dotenv -e .env.test nodemon src/server.ts"
   },
   "keywords": [],
