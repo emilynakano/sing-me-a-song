@@ -2,7 +2,7 @@ import app from "../../src/app";
 import supertest from "supertest";
 import { prisma } from "../../src/database.js";
 
-import { generateRecommendation, CreateRecommendationData, insertRecommendation } from "./factories/generateRecommendation.js";
+import { generateRecommendation, insertRecommendation } from "./factories/generateRecommendation.js";
 
 const agent = supertest(app);
 
@@ -87,7 +87,6 @@ describe("GET /recommendations/top/:amount", () => {
         const upvoteRecommendation = await generateRecommendation();
         await insertRecommendation(upvoteRecommendation);
 
-
         await prisma.recommendation.update({
             where: { name: upvoteRecommendation.name },
             data: {
@@ -101,6 +100,28 @@ describe("GET /recommendations/top/:amount", () => {
         expect(result.body.length).toEqual(2);
         expect(result.body[0]).toMatchObject(upvoteRecommendation);
     });
+});
 
+describe("POST /recommendations/:id/upvote", () => {
+    it("should answer with status code 200", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
 
+        const { id } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        const result = await agent.post(`/recommendations/${id}/upvote`);
+
+        const { score } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        expect(score).toEqual(1);
+        expect(result.status).toBe(200);
+    });
 });
