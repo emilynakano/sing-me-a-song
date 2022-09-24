@@ -5,8 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest -i --coverage",
-    "dev": "dotenv -e .env.test nodemon src/server.ts"
+    "dev": "dotenv -e .env.test nodemon src/server.ts",
+    "prisma-test": "dotenv -e .env.test prisma migrate dev",
+    "test:integration": "npm run prisma-test && dotenv -e .env.test jest -- --no-cache -i --testPathPattern=tests/integration",
+    "test:unit": "npm run prisma-test && dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ import app from "../../src/app";
 import supertest from "supertest";
 import { prisma } from "../../src/database.js";
 
-import { generateRecommendation, insertRecommendation } from "./factories/generateRecommendation.js";
+import { generateRecommendation, insertRecommendation } from "./factories/recommendationFactory.js";
 
 const agent = supertest(app);
 

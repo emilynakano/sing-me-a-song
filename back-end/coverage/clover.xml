@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664048256466" clover="3.2.0">
-  <project timestamp="1664048256466" name="All files">
-    <metrics statements="391" coveredstatements="368" conditionals="61" coveredconditionals="53" methods="36" coveredmethods="32" elements="488" coveredelements="453" complexity="0" loc="391" ncloc="391" packages="9" files="14" classes="14"/>
+<coverage generated="1664054761834" clover="3.2.0">
+  <project timestamp="1664054761835" name="All files">
+    <metrics statements="391" coveredstatements="371" conditionals="61" coveredconditionals="54" methods="36" coveredmethods="32" elements="488" coveredelements="457" complexity="0" loc="391" ncloc="391" packages="9" files="14" classes="14"/>
     <package name="src">
       <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/app.ts">
@@ -293,7 +293,7 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="98" coveredstatements="90" conditionals="18" coveredconditionals="16" methods="10" coveredmethods="9"/>
+      <metrics statements="98" coveredstatements="93" conditionals="18" coveredconditionals="17" methods="10" coveredmethods="9"/>
       <file name="e2eService.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/services/e2eService.ts">
         <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -303,7 +303,7 @@
         <line num="5" count="0" type="stmt"/>
       </file>
       <file name="recommendationsService.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/services/recommendationsService.ts">
-        <metrics statements="93" coveredstatements="88" conditionals="18" coveredconditionals="16" methods="9" coveredmethods="9"/>
+        <metrics statements="93" coveredstatements="91" conditionals="18" coveredconditionals="17" methods="9" coveredmethods="9"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -381,12 +381,12 @@
         <line num="75" count="2" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
         <line num="77" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="78" count="2" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
-        <line num="81" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
+        <line num="78" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
@@ -440,7 +440,7 @@
     </package>
     <package name="tests.integration.factories">
       <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="generateRecommendation.ts" path="/home/emily/projetos/sing-me-a-song/back-end/tests/integration/factories/generateRecommendation.ts">
+      <file name="recommendationFactory.ts" path="/home/emily/projetos/sing-me-a-song/back-end/tests/integration/factories/recommendationFactory.ts">
         <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
