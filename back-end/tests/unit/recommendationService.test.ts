@@ -15,6 +15,8 @@ const recommendation = {
     youtubeLink: `https://www.youtube.com/${faker.random.alphaNumeric(40)}`
 }
 
+const id = 1
+
 describe("recommendation service", () => {
     it("should create a recommendation", async () => {
         jest
@@ -43,5 +45,20 @@ describe("recommendation service", () => {
             message: "Recommendations names must be unique"
         });
         expect(recommendationRepository.create).not.toBeCalled();
+    });
+
+    it("should upvote a recommendation", async () => {
+        jest
+            .spyOn(recommendationRepository, "find")
+            .mockImplementationOnce((): any => recommendation)
+        
+        jest
+            .spyOn(recommendationRepository, "updateScore")
+            .mockImplementationOnce((): any => {})
+        
+        await recommendationService.upvote(id);
+
+        expect(recommendationRepository.find).toBeCalled();
+        expect(recommendationRepository.updateScore).toBeCalled();
     });
 })

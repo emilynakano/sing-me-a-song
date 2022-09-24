@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.48% </span>
+                <span class="strong">47.31% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/93</span>
+                <span class='fraction'>44/93</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>3/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.48% </span>
+                <span class="strong">47.31% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/93</span>
+                <span class='fraction'>44/93</span>
             </div>
         
             
@@ -172,11 +172,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -191,12 +191,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -265,11 +265,11 @@ async function insert(createRecommendationData: CreateRecommendationData) {
   await recommendationRepository.create(createRecommendationData);
 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async function upvote(id: number) {</span></span>
-<span class="cstat-no" title="statement not covered" >  await getByIdOrFail(id);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  await recommendationRepository.updateScore(id, "increment");</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+async function upvote(id: number) {
+  await getByIdOrFail(id);
+&nbsp;
+  await recommendationRepository.updateScore(id, "increment");
+}
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async function downvote(id: number) {</span></span>
 <span class="cstat-no" title="statement not covered" >  await getByIdOrFail(id);</span>
@@ -284,12 +284,12 @@ async function insert(createRecommendationData: CreateRecommendationData) {
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async function getByIdOrFail(id: number) {</span></span>
-<span class="cstat-no" title="statement not covered" >  const recommendation = await recommendationRepository.find(id);</span>
-<span class="cstat-no" title="statement not covered" >  if (!recommendation) throw notFoundError();</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return recommendation;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+async function getByIdOrFail(id: number) {
+  const recommendation = await recommendationRepository.find(id);
+  if (!recommendation) <span class="branch-0 cbranch-no" title="branch not covered" >throw notFoundError();</span>
+&nbsp;
+  return recommendation;
+}
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async function get() {</span></span>
 <span class="cstat-no" title="statement not covered" >  return recommendationRepository.findAll();</span>
@@ -349,7 +349,7 @@ export const recommendationService = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-24T21:41:50.755Z
+                at 2022-09-24T21:48:22.170Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
