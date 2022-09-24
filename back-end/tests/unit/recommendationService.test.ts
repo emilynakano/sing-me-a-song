@@ -29,5 +29,19 @@ describe("recommendation service", () => {
 
         expect(recommendationRepository.findByName).toBeCalled();
         expect(recommendationRepository.create).toBeCalled();
-    })
+    });
+
+    it("should not create a recommendation", async () => {
+        jest
+            .spyOn(recommendationRepository, "findByName")
+            .mockImplementationOnce((): any => recommendation)
+
+        const promise = recommendationService.insert(recommendation);
+
+        expect(promise).rejects.toEqual({
+            type: "conflict",
+            message: "Recommendations names must be unique"
+        });
+        expect(recommendationRepository.create).not.toBeCalled();
+    });
 })
