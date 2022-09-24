@@ -155,4 +155,27 @@ describe("POST /recommendations/:id/downvote", () => {
         expect(result.status).toBe(200);
     });
 
+    it("should remove recommendation if score is below -5", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const { id } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+        
+        for(let i = 0; i < 6; i ++) {
+            await agent.post(`/recommendations/${id}/downvote`);
+        }
+
+        const findRecommendation = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        expect(findRecommendation).toBeFalsy();
+    });
+
 });
