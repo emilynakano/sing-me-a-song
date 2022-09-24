@@ -61,4 +61,18 @@ describe("recommendation service", () => {
         expect(recommendationRepository.find).toBeCalled();
         expect(recommendationRepository.updateScore).toBeCalled();
     });
+
+    it("should not upvote a recommendation", async () => {
+        jest
+            .spyOn(recommendationRepository, "find")
+            .mockImplementationOnce((): any => {})
+        
+        const promise = recommendationService.upvote(id);
+
+        expect(promise).rejects.toEqual({
+            type: "not_found",
+            message: ""
+        });
+        expect(recommendationRepository.updateScore).not.toBeCalled();
+    });
 })
