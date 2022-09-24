@@ -131,3 +131,28 @@ describe("POST /recommendations/:id/upvote", () => {
         expect(result.status).toBe(404);
     });
 });
+
+describe("POST /recommendations/:id/downvote", () => {
+    it("should answer with status code 200", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const { id } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        const result = await agent.post(`/recommendations/${id}/downvote`);
+
+        const { score } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        expect(score).toEqual(-1);
+        expect(result.status).toBe(200);
+    });
+
+});
