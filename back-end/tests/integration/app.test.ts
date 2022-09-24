@@ -58,6 +58,24 @@ describe("GET /recommendations", () => {
     });
 });
 
+describe("GET /recommendations/:id", () => {
+    it("should answer with status code 200 and an object", async () => {
+        const recommendation = await generateRecommendation();
+        await insertRecommendation(recommendation);
+
+        const { id } = await prisma.recommendation.findUnique({
+            where: {
+                name: recommendation.name
+            }
+        });
+
+        const result = await agent.get(`/recommendations/${id}`);
+     
+        expect(result.status).toBe(200);
+        expect(result.body).toMatchObject({id});
+    });
+});
+
 describe("GET /recommendations/random", () => {
     it("should answer with status code 200 and an object", async () => {
         const recommendation = await generateRecommendation();
