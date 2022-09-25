@@ -3,13 +3,18 @@ beforeEach(() => {
   cy.resetDatabase();
 });
 
+const recommendation = {
+  name: "How to make 1M",
+  youtubeLInk: "https://youtu.be/CK_BCMA9yoY",
+};
+
 describe("create a recommendation", () => {
   it("create successfully", () => {
     cy.visit("http://localhost:3000");
 
-    cy.get("input[placeholder='Name']").type("How to make 1M");
+    cy.get("input[placeholder='Name']").type(recommendation.name);
     cy.get("input[placeholder='https://youtu.be/...']").type(
-      "https://youtu.be/CK_BCMA9yoY"
+      recommendation.youtubeLInk
     );
 
     cy.intercept("POST", "/recommendations").as("createRecommendation");
@@ -20,6 +25,6 @@ describe("create a recommendation", () => {
     cy.wait("@createRecommendation");
     cy.wait("@getRecommendations");
 
-    cy.contains("How to make 1M").should("be.visible");
+    cy.contains(recommendation.name).should("be.visible");
   });
 });
