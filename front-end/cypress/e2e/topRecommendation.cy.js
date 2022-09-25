@@ -3,8 +3,8 @@ beforeEach(() => {
   cy.resetDatabase();
 });
 
-describe("go to top page", () => {
-  it("downvote successfully", () => {
+describe("top page", () => {
+  it("go to top page", () => {
     cy.visit("http://localhost:3000");
 
     cy.get("[data-cy=top]").click();
