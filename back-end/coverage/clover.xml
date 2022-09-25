@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664065203632" clover="3.2.0">
-  <project timestamp="1664065203632" name="All files">
-    <metrics statements="210" coveredstatements="101" conditionals="13" coveredconditionals="10" methods="23" coveredmethods="6" elements="246" coveredelements="117" complexity="0" loc="210" ncloc="210" packages="4" files="4" classes="4"/>
+<coverage generated="1664065598999" clover="3.2.0">
+  <project timestamp="1664065599000" name="All files">
+    <metrics statements="210" coveredstatements="103" conditionals="13" coveredconditionals="11" methods="23" coveredmethods="6" elements="246" coveredelements="120" complexity="0" loc="210" ncloc="210" packages="4" files="4" classes="4"/>
     <package name="src">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="database.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/database.ts">
@@ -99,9 +99,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="93" coveredstatements="54" conditionals="9" coveredconditionals="8" methods="9" coveredmethods="4"/>
+      <metrics statements="93" coveredstatements="56" conditionals="9" coveredconditionals="9" methods="9" coveredmethods="4"/>
       <file name="recommendationsService.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/services/recommendationsService.ts">
-        <metrics statements="93" coveredstatements="54" conditionals="9" coveredconditionals="8" methods="9" coveredmethods="4"/>
+        <metrics statements="93" coveredstatements="56" conditionals="9" coveredconditionals="9" methods="9" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -124,25 +124,25 @@
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="23" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="36" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="37" count="3" type="stmt"/>
-        <line num="38" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="39" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
