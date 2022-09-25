@@ -1,6 +1,6 @@
 dist
-/coverage
 node_modules
 .env
 .env.test
+coverage
 !.env.example
