@@ -4,7 +4,7 @@ beforeEach(() => {
 });
 
 describe("upvote a recommendation", () => {
-  it("create successfully", () => {
+  it("upvote successfully", () => {
     cy.visit("http://localhost:3000");
 
     cy.addRecommendation();
