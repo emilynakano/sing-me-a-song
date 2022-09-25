@@ -26,6 +26,7 @@ export default function CreateNewRecommendation({
         value={name}
         onChange={(e) => setName(e.target.value)}
         disabled={disabled}
+        data-cy="recommendation-name"
       />
       <Input
         type="text"
