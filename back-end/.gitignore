@@ -1,5 +1,5 @@
 dist
-coverage
+/coverage
 node_modules
 .env
 .env.test
