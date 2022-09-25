@@ -75,4 +75,19 @@ describe("recommendation service", () => {
         });
         expect(recommendationRepository.updateScore).not.toBeCalled();
     });
+
+    it("should downvote a recommendation", async () => {
+        jest
+            .spyOn(recommendationRepository, "find")
+            .mockImplementationOnce((): any => recommendation)
+        
+        jest
+            .spyOn(recommendationRepository, "updateScore")
+            .mockImplementationOnce((): any => { return { score: 1 } })
+        
+        await recommendationService.downvote(id);
+
+        expect(recommendationRepository.find).toBeCalled();
+        expect(recommendationRepository.updateScore).toBeCalled();
+    });
 })
