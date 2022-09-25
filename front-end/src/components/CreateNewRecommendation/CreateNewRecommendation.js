@@ -36,7 +36,11 @@ export default function CreateNewRecommendation({
         disabled={disabled}
         data-cy="recommendation-link"
       />
-      <Button onClick={() => handleCreateRecommendation()} disabled={disabled}>
+      <Button
+        onClick={() => handleCreateRecommendation()}
+        disabled={disabled}
+        data-cy="submit-recommendation"
+      >
         <IoReturnUpForwardOutline size="24px" color="#fff" />
       </Button>
     </Container>
