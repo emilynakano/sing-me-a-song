@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664065916574" clover="3.2.0">
-  <project timestamp="1664065916574" name="All files">
-    <metrics statements="210" coveredstatements="103" conditionals="14" coveredconditionals="12" methods="23" coveredmethods="6" elements="247" coveredelements="121" complexity="0" loc="210" ncloc="210" packages="4" files="4" classes="4"/>
+<coverage generated="1664066621804" clover="3.2.0">
+  <project timestamp="1664066621804" name="All files">
+    <metrics statements="210" coveredstatements="109" conditionals="16" coveredconditionals="14" methods="23" coveredmethods="8" elements="249" coveredelements="131" complexity="0" loc="210" ncloc="210" packages="4" files="4" classes="4"/>
     <package name="src">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="database.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/database.ts">
@@ -99,9 +99,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="93" coveredstatements="56" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="4"/>
+      <metrics statements="93" coveredstatements="62" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="6"/>
       <file name="recommendationsService.ts" path="/home/emily/projetos/sing-me-a-song/back-end/src/services/recommendationsService.ts">
-        <metrics statements="93" coveredstatements="56" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="4"/>
+        <metrics statements="93" coveredstatements="62" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -144,13 +144,13 @@
         <line num="40" count="3" type="stmt"/>
         <line num="41" count="3" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="47" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
