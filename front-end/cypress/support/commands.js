@@ -10,7 +10,11 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+// eslint-disable-next-line no-undef
+Cypress.Commands.add("resetDatabase", () => {
+  // eslint-disable-next-line no-undef
+  cy.request("POST", "http://localhost:5000/e2e/reset");
+});
 //
 //
 // -- This is a child command --
