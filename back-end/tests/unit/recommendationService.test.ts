@@ -144,4 +144,14 @@ describe("recommendation service", () => {
 
         expect(recommendationRepository.getAmountByScore).toBeCalled();
     });
+
+
+    it("should get score filter 'gt' ", async () => {
+        const result = recommendationService.getScoreFilter(0.6)
+
+        expect(result).toEqual("gt");
+    });
+
+
+
 })
