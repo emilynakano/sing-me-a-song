@@ -205,7 +205,18 @@ describe("recommendation service", () => {
         expect(recommendationRepository.findAll).toBeCalled();
     });
 
-    
+    it("should not get random recommendation", async () => {
+        jest.spyOn(recommendationRepository, "findAll")
+            .mockImplementationOnce((): any => { return [] })
+            .mockImplementationOnce((): any => { return [] });
+
+        const result = recommendationService.getRandom();
+
+        expect(result).rejects.toEqual({
+            type: "not_found",
+            message: ""
+        });
+    });
 
 
 })
