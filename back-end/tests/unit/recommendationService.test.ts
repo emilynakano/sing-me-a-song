@@ -168,7 +168,16 @@ describe("recommendation service", () => {
         expect(recommendationRepository.findAll).toBeCalled();
     });
 
+    it("should get an empty array of recommendation by score", async () => {
+        jest
+            .spyOn(recommendationRepository, "findAll")
+            .mockImplementationOnce((): any => [])
+
+        await recommendationService.getByScore("gt")
+
+        expect(recommendationRepository.findAll).toBeCalled();
+    });
     
 
-
+    
 })
