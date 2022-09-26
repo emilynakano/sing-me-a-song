@@ -158,5 +158,17 @@ describe("recommendation service", () => {
         expect(result).toEqual("lte");
     });
 
+    it("should get recommendations by score", async () => {
+        jest
+            .spyOn(recommendationRepository, "findAll")
+            .mockImplementationOnce((): any => [{id: 1}])
+
+        await recommendationService.getByScore("gt")
+
+        expect(recommendationRepository.findAll).toBeCalled();
+    });
+
+    
+
 
 })
