@@ -152,6 +152,11 @@ describe("recommendation service", () => {
         expect(result).toEqual("gt");
     });
 
+    it("should get score filter 'lte' ", async () => {
+        const result = recommendationService.getScoreFilter(0.8)
+
+        expect(result).toEqual("lte");
+    });
 
 
 })
