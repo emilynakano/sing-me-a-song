@@ -179,5 +179,33 @@ describe("recommendation service", () => {
     });
     
 
+    it("should get random recommendation", async () => {
+        jest
+            .spyOn(global.Math, 'random')
+            .mockReturnValue(0.6);
+        jest
+            .spyOn(global.Math, 'floor')
+            .mockReturnValue(0);
+        jest
+            .spyOn(recommendationService, 'getScoreFilter')
+            .mockImplementationOnce((): any => "gt");
+        jest
+            .spyOn(recommendationRepository, 'findAll')
+            .mockImplementationOnce((): any => {
+                return [{
+                    id: 1,
+                    name: "string",
+                    youtubeLink: "string",
+                    score: "string"
+                }]
+            });
+
+        await recommendationService.getRandom();
+
+        expect(recommendationRepository.findAll).toBeCalled();
+    });
+
     
+
+
 })
